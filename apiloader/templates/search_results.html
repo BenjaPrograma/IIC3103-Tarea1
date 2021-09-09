@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>USERS</h2>
+  <ul>
+    {% for user in all_users %}
+        <li>
+          Nombre: {{ user.name }}
+          {{ user.lastName }}
+          
+           Email: {{ user.email }}
+          <img src={{user.avatar}}>
+          <a href="/apiloader/{{ user.id }}/">Mas info</a>
+        </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Cities</h2>
+  <ul>
+    {% for city in all_cities %}
+        <li>
+          Nombre: {{ city.name }}
+           Country: {{ city.country }}
+          
+          <a href="/apiloader/cities/{{ city.id }}/">Mas info</a>
+        </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

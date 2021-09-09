@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4>City Info</h4>
+
+  <p>
+    ID: {{info.id}}
+     Nombre: {{info.name}}
+      Country: {{info.country}}
+  </p>
+
+  <h4>City Registered Users</h4>
+  <ul>
+    {% for user in users %}
+        <li>
+          name: {{ user.name }}
+          {{ user.lastName }}
+          <a href="/apiloader/{{ user.id }}/">Mas info</a>
+        </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

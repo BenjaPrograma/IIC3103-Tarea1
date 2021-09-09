@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Cities</h2>
+  <ul>
+    {% for city in all_cities %}
+        <li>
+          Nombre: {{ city.name }}
+           Country: {{ city.country }}
+          
+          <a href="/apiloader/cities/{{ city.id }}/">Mas info</a>
+        </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

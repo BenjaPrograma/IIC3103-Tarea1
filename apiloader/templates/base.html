@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea 1</title>
+  </head>
+  <body>
+    {% block content2 %}
+    <h2>SearchBar</h2>
+    <form action="{% url 'apiloader:search_res' %}" method="get">
+      <input type="text" name="searchword">
+      <button type="submit">Buscar</button>
+    </form>
+    {% endblock content2 %}
+
+    {% block content %}{% endblock content %}
+  </body>
+</html>

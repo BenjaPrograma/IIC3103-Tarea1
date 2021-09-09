@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h4>User Info</h4>
+
+  <p>
+    ID: {{info.id}}
+     Nombre: {{info.name}}
+     {{info.lastName}}
+     Email: {{ info.email }}
+      Nacimiento: {{info.birthdate}}
+    <img src={{user.avatar}}>
+  </p>
+
+  <h4>User Tarjetas</h4>
+  <ul>
+    {% for card in cards %}
+        <li>
+          id: {{ card.id }}
+           numero: {{ card.creditCard }}
+           CVV: {{card.CVV}}
+        </li>
+    {% endfor %}
+  </ul>
+
+  <h4>User Direcciones</h4>
+  <ul>
+    {% for add in addresses %}
+        <li>
+          id: {{ add.id }}
+           direccion: {{ add.address }}
+           zip: {{add.zip}}
+           ciudad: {{add.city.id}}
+           ciudad nombre: {{add.city.name}}
+           ciudad pais: {{add.city.country}}
+
+          <a href="/apiloader/cities/{{ add.city.id }}/">Mas info</a>
+        </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
