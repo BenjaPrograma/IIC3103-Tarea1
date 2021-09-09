@@ -10,7 +10,7 @@
           
            Email: {{ user.email }}
           <img src={{user.avatar}}>
-          <a href="/apiloader/{{ user.id }}/">Mas info</a>
+          <a href="/users/{{ user.id }}/">Mas info</a>
         </li>
     {% endfor %}
   </ul>
@@ -22,7 +22,7 @@
           Nombre: {{ city.name }}
            Country: {{ city.country }}
           
-          <a href="/apiloader/cities/{{ city.id }}/">Mas info</a>
+          <a href="/cities/{{ city.id }}/">Mas info</a>
         </li>
     {% endfor %}
   </ul>

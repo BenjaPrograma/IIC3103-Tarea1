@@ -7,6 +7,10 @@ CANVAS_ID = 30940
 URL_API = "https://us-central1-taller-integracion-310700.cloudfunctions.net/tarea-1-2021-2/" + str(CANVAS_ID)
 
 
+def home(request):
+    return render(request, "home.html")
+
+
 def users_display(request):
     i = 1
     all_users = []
@@ -47,6 +51,7 @@ def cities_display(request):
 
 def city_info(request, city_id):
     i = 1
+    found_city = False
     while i < 99:
         URL_CITIES = URL_API + "/cities?_page=" + str(i)
         response = requests.get(URL_CITIES)
@@ -73,11 +78,13 @@ def city_info(request, city_id):
 def search_res(request):
     #request = request.GET
     if 'searchword' in request.GET:
-        print("AA",request.GET)
+        #print("AA",request.GET)
+        term = request.GET['searchword']
+
         i = 1
         all_cities = []
         while i < 99:
-            URL_CITIES = URL_API + "/cities?_page=" + str(i)
+            URL_CITIES = URL_API + "/cities?q=" + str(term) + "&_page=" + str(i)
             response = requests.get(URL_CITIES)
             response = response.json()
 
@@ -89,7 +96,7 @@ def search_res(request):
         i = 1
         all_users = []
         while i < 99:
-            URL_USERS = URL_API + "/users?_page=" + str(i)
+            URL_USERS = URL_API + "/users?q=" + str(term) + "&_page=" + str(i)
             response = requests.get(URL_USERS)
             response = response.json()
 
